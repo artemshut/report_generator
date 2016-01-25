@@ -5,12 +5,9 @@ class UsersController < ApplicationController
 	def generate_report
 		campaign_id = params[:campaign_id]
 		if campaign_id.present?
-			report_generator = ReportGeneratorService.new(params[:campaign_id])
-			if report_generator.valid_campaign?
-				report_generator.run
-			else
-				
-			end
+			report_generator = ReportGeneratorQuery.new(params[:campaign_id], current_user.id)
+			@generated_report = report_generator.run
+			render :show
 		end
 
 	end

@@ -15,7 +15,7 @@ development:
   encoding: utf8
   database: report_generator_dev
   username: root
-  password: abkfnjdf6
+  password: password1
   host: 127.0.0.1
   port: 3306
 

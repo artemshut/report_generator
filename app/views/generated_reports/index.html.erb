@@ -1,0 +1,14 @@
+<%- if @generated_reports %>
+	<ul>
+		<%- @generated_reports.each do |report| %>
+	    <li>
+	    	<%= report.campaign_id %>
+	    	<%= report.created_at %>
+	    	<%= form_for report, url: user_generated_report_path(current_user.id, report.id), method: :patch do |f| %>
+		    	<%= f.text_area :comment %>
+		    	<%= f.submit 'Update Report Comments' %>
+	    	<% end %>
+	    </li>
+    <% end %>
+	</ul>
+<% end %>

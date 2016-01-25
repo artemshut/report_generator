@@ -18,7 +18,7 @@ Rails.application.configure do
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
-
+  config.secret_key = '907a940ef193dd3f1a08147e1906f6b0c9963164152d5d08d7a0c83c994b7bb8ab7cfe7382c60c9f160fcbcf1f8bf7e7c53cd159c6867d1ce888b56813f16be3'
   # Raise an error on page load if there are pending migrations.
   config.active_record.migration_error = :page_load
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }

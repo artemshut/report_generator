@@ -1,19 +1,16 @@
 <div class="jumbotron">
   <% if user_signed_in? %>
-    <h1>Welcome back, trusted user!</h1>
+    <h1>Welcome back, <%= current_user.email %></h1>
     <p class="lead">
-      You have signed in!  If this were a real app some sweet conent
-      would go here.  But it's just a test.  You might want to sign out now.
+      You have signed in!  You may generate report from this page. All you need - just input campaign id value
     </p>
-    <%= link_to "Sign Out", destroy_user_session_path, :method => :delete, :class => 'btn btn-large btn-danger' %>
+
     <%= form_for current_user, url: generate_report_user_path(current_user.id), method: :get do |f| %>
       Campaign id: <%= text_field('', 'campaign_id') %><br />
-      <%= f.submit %>
+      <%= f.submit 'Generate Report' %>
     <% end %>
-    <!-- <form> -->
-      <!-- <input type="text" class="campaign-id" name="campaign_id"> -->
-       <%= link_to "Generate Report", generate_report_user_path(current_user.id), :class => 'btn btn-small btn-warn' %>
-    <!-- </form> -->
+
+    <%= link_to "Generated Reports", user_generated_reports_path(current_user.id) %>
   <% else %>
     <h1>Welcome, new user!</h1>
     <p class="lead">
